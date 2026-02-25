@@ -302,6 +302,9 @@ a {
 .hero {
     position: relative;
     min-height: 100vh;
+    /* Fallback */
+    min-height: 100svh;
+    /* Мобильный фикс перелета при скролле */
     display: flex;
     align-items: center;
     padding-top: 80px;
@@ -379,32 +382,50 @@ a {
 
 .scroll-down {
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    animation: bounce 2s infinite;
+    z-index: 100;
 }
 
 .scroll-down a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     color: var(--color-white);
+    position: relative;
+}
+
+.scroll-down a::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    /* 40px hitbox area border */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: var(--transition-base);
 }
 
 .scroll-down a img {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     opacity: 0.8;
+    z-index: 2;
+    animation: bounce 2s infinite;
 }
 
-.scroll-down a:hover {
+.scroll-down a:hover::before {
     border-color: var(--color-accent);
-    color: var(--color-accent);
+}
+
+.scroll-down a:hover img {
+    opacity: 1;
 }
 
 /* --- Services --- */

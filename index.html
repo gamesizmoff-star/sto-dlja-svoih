@@ -14,12 +14,14 @@
     <link rel="stylesheet" href="css/style.css">
     <meta name="description"
         content="Премиум автосервис 'СТО ДЛЯ СВОИХ' в Санкт-Петербурге и Кингисеппе. Диагностика, ремонт, обслуживание корпоративных парков с гарантией 1 год.">
+    <!-- Иконка сайта -->
+    <link rel="icon" type="image/svg+xml" href="assets/Svg/favicon.svg">
 </head>
 
 <body>
     <header class="header">
         <div class="container header-container">
-            <a href="#" class="logo">
+            <a href="#home" class="logo">
                 <img src="assets/Photo/logo-dark.png" alt="СТО ДЛЯ СВОИХ Логотип" class="real-logo">
             </a>
 
@@ -182,14 +184,10 @@
 
         <section class="locations section-padding" id="locations">
             <div class="container">
-                <h2 class="section-title text-center">Наши <span class="text-accent">филиалы</span></h2>
+                <h2 class="section-title text-center">Наш <span class="text-accent">сервис</span></h2>
 
                 <div class="tabs-container animate-on-scroll">
-                    <div class="tabs-header">
-                        <button class="tab-btn active" data-tab="spb">Санкт-Петербург</button>
-                        <button class="tab-btn" data-tab="kingisepp">Кингисепп</button>
-                    </div>
-
+                    <!-- Заголовки вкладок убраны, так как остался один филиал -->
                     <div class="tabs-content">
                         <!-- Вкладка СПб -->
                         <div class="tab-pane active" id="spb">
@@ -225,52 +223,9 @@
                                     </ul>
                                     <div class="location-actions">
                                         <a href="tel:+79213302120" class="btn btn-primary">Позвонить</a>
-                                        <a href="#" class="btn btn-outline">Маршрут</a>
-                                    </div>
-                                </div>
-                                <div class="location-map">
-                                    <div class="map-placeholder">
-                                        Карта Яндекс / Google
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Вкладка Кингисепп -->
-                        <div class="tab-pane" id="kingisepp">
-                            <div class="glass-panel location-card">
-                                <div class="location-details">
-                                    <h3>СТО ДЛЯ СВОИХ — Кингисепп</h3>
-                                    <ul class="contact-list">
-                                        <li>
-                                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
-                                                stroke-width="2" fill="none">
-                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                                <circle cx="12" cy="10" r="3"></circle>
-                                            </svg>
-                                            <span>Промзона 3-й проезд, зд. 17, стр. 2</span>
-                                        </li>
-                                        <li>
-                                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
-                                                stroke-width="2" fill="none">
-                                                <path
-                                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                                </path>
-                                            </svg>
-                                            <a href="tel:+79990099023">+7 (999) 009-90-23</a>
-                                        </li>
-                                        <li>
-                                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
-                                                stroke-width="2" fill="none">
-                                                <circle cx="12" cy="12" r="10"></circle>
-                                                <polyline points="12 6 12 12 16 14"></polyline>
-                                            </svg>
-                                            <span>Ежедневно с 9:00 до 20:00</span>
-                                        </li>
-                                    </ul>
-                                    <div class="location-actions">
-                                        <a href="tel:+79990099023" class="btn btn-primary">Позвонить</a>
-                                        <a href="#" class="btn btn-outline">Маршрут</a>
+                                        <a href="javascript:void(0)"
+                                            onclick="alert('Открытие карт и построение маршрута в разработке!')"
+                                            class="btn btn-outline">Маршрут</a>
                                     </div>
                                 </div>
                                 <div class="location-map">
@@ -289,7 +244,7 @@
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-brand">
-                <a href="#" class="logo">
+                <a href="#home" class="logo">
                     <img src="assets/Photo/logo-light.png" alt="СТО ДЛЯ СВОИХ Логотип" class="real-logo-footer">
                 </a>
                 <p>Надежный автосервис нового формата. Прозрачность и профессионализм в каждой детали.</p>
@@ -310,10 +265,6 @@
                 <div class="footer-contact-item">
                     <strong>Санкт-Петербург:</strong>
                     <a href="tel:+79213302120">+7 (921) 330-21-20</a>
-                </div>
-                <div class="footer-contact-item">
-                    <strong>Кингисепп:</strong>
-                    <a href="tel:+79990099023">+7 (999) 009-90-23</a>
                 </div>
             </div>
         </div>
