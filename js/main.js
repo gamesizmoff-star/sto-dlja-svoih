@@ -79,23 +79,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animateElements.forEach(el => observer.observe(el));
 
-    // 5. Плавная прокрутка для якорных ссылок (Фикс для fixed header)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // 5. Нативный CSS scroll-behavior используется вместо JS.
 });
+
+// Глобальная функция для копирования телефона по клику
+window.copyPhone = function (btnElement, phoneString, event) {
+    if (event) event.preventDefault();
+
+    // Пытаемся скопировать в буфер
+    navigator.clipboard.writeText(phoneString).then(() => {
+        // Раз копия успешна, меняем текст кнопки
+        const originalText = btnElement.innerHTML;
+        btnElement.innerHTML = 'Скопировано!';
+        btnElement.style.backgroundColor = '#125687'; // Дадим индикцию цветом
+        btnElement.style.color = '#fff';
+
+        // Возвращаем текст
+        setTimeout(() => {
+            btnElement.innerHTML = originalText;
+            btnElement.style.backgroundColor = '';
+        }, 2000);
+    }).catch(err => {
+        alert('Не удалось скопировать номер: ' + phoneString);
+    });
+};
