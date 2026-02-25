@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СТО ДЛЯ СВОИХ — Надежный автосервис</title>
+    <!-- Подключение шрифтов (аналоги фирменным Century Gothic и Stem) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description"
+        content="Премиум автосервис 'СТО ДЛЯ СВОИХ' в Санкт-Петербурге и Кингисеппе. Диагностика, ремонт, обслуживание корпоративных парков с гарантией 1 год.">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="assets/Photo/logo-dark.png" alt="СТО ДЛЯ СВОИХ Логотип" class="real-logo">
+            </a>
+
+            <button class="menu-toggle" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#locations">Наши СТО</a></li>
+                </ul>
+            </nav>
+            <a href="#locations" class="btn btn-primary btn-small header-btn">Связаться</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-bg-pattern"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Сервис, которому<br><span class="text-accent">доверяют свои</span></h1>
+
+                    <!-- Логотип для пустой зоны -->
+                    <div class="hero-big-logo"
+                        style="margin: 3rem 0; max-width: 450px; opacity: 0; animation: fadeIn 1.2s ease forwards 0.3s;">
+                        <img src="assets/Photo/logo-dark.png" alt="СТО ДЛЯ СВОИХ Бренд"
+                            style="width: 100%; height: auto; display: block; filter: drop-shadow(0 0 15px rgba(0, 163, 225, 0.2));">
+                    </div>
+
+                    <p class="hero-subtitle">Честный подход, передовое оборудование и комфортная клиентская зона.
+                        Работаем на результат и долгосрочное доверие.</p>
+                    <div class="hero-actions">
+                        <a href="#services" class="btn btn-primary">Наши Услуги</a>
+                        <a href="#locations" class="btn btn-outline">Выбрать СТО</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-down">
+                <a href="#services" aria-label="Scroll down">
+                    <img src="assets/Svg/scroll-arrow.svg" alt="Arrow">
+                </a>
+            </div>
+        </section>
+
+        <section class="services section-padding" id="services">
+            <div class="container">
+                <h2 class="section-title text-center">Наши <span class="text-accent">услуги</span></h2>
+                <div class="services-grid">
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <!-- SVG placeholder for icon -->
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Техобслуживание</h3>
+                        <p>Регулярное ТО, замена масла, фильтров и технических жидкостей по регламенту производителя.
+                        </p>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Развал-схождение</h3>
+                        <p>Точная регулировка углов установки колес на современном 3D-стенде с гарантией результата.</p>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <h3>Автозапчасти</h3>
+                        <p>В наличии и под заказ оригинальные запчасти и качественные аналоги для большинства марок.</p>
+                    </div>
+                    <div class="service-card animate-on-scroll">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Для корпоративных парков</h3>
+                        <p>Специальные условия, безналичный расчет, гибкий график и персональный менеджер.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages section-padding" id="advantages">
+            <div class="container">
+                <div class="advantages-content">
+                    <div class="advantages-text animate-on-scroll">
+                        <h2 class="section-title">Почему <br><span class="text-accent">мы</span>?</h2>
+                        <p class="advantages-desc">Мы создали пространство, где ремонт автомобиля перестает быть
+                            стрессом. Философия нашего бренда основана на исключительной прозрачности, профессионализме
+                            и комфорте.</p>
+                        <ul class="advantages-list">
+                            <li>
+                                <div class="adv-icon">🛡️</div>
+                                <div>
+                                    <strong>Гарантия 1 год</strong>
+                                    <p>Мы полностью уверены в качестве наших работ и запчастей.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="adv-icon">🛋️</div>
+                                <div>
+                                    <strong>Атмосфера Zen</strong>
+                                    <p>Ожидайте автомобиль в комфортной клиентской зоне, оборудованной по высшему
+                                        классу.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="adv-icon">💻</div>
+                                <div>
+                                    <strong>Современное оборудование</strong>
+                                    <p>Используем только передовые технологии высокоточной диагностики и ремонта.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="advantages-visual animate-on-scroll delay-1">
+                        <div class="glass-panel image-container">
+                            <img src="assets/Svg/advantages-art.svg" alt="Иллюстрация" class="advantages-svg-art">
+                            <div class="pattern-overlay"></div>
+                            <div class="glass-text">
+                                <span class="big-number">100%</span>
+                                <span>Прозрачность<br>расчетов</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="locations section-padding" id="locations">
+            <div class="container">
+                <h2 class="section-title text-center">Наши <span class="text-accent">филиалы</span></h2>
+
+                <div class="tabs-container animate-on-scroll">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="spb">Санкт-Петербург</button>
+                        <button class="tab-btn" data-tab="kingisepp">Кингисепп</button>
+                    </div>
+
+                    <div class="tabs-content">
+                        <!-- Вкладка СПб -->
+                        <div class="tab-pane active" id="spb">
+                            <div class="glass-panel location-card">
+                                <div class="location-details">
+                                    <h3>СТО ДЛЯ СВОИХ — СПб</h3>
+                                    <ul class="contact-list">
+                                        <li>
+                                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
+                                                stroke-width="2" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                                <circle cx="12" cy="10" r="3"></circle>
+                                            </svg>
+                                            <span>ул. Бухарестская, 10</span>
+                                        </li>
+                                        <li>
+                                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
+                                                stroke-width="2" fill="none">
+                                                <path
+                                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                                </path>
+                                            </svg>
+                                            <a href="tel:+79213302120">+7 (921) 330-21-20</a>
+                                        </li>
+                                        <li>
+                                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
+                                                stroke-width="2" fill="none">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <polyline points="12 6 12 12 16 14"></polyline>
+                                            </svg>
+                                            <span>Ежедневно с 9:00 до 21:00</span>
+                                        </li>
+                                    </ul>
+                                    <div class="location-actions">
+                                        <a href="tel:+79213302120" class="btn btn-primary">Позвонить</a>
+                                        <a href="#" class="btn btn-outline">Маршрут</a>
+                                    </div>
+                                </div>
+                                <div class="location-map">
+                                    <div class="map-placeholder">
+                                        Карта Яндекс / Google
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Вкладка Кингисепп -->
+                        <div class="tab-pane" id="kingisepp">
+                            <div class="glass-panel location-card">
+                                <div class="location-details">
+                                    <h3>СТО ДЛЯ СВОИХ — Кингисепп</h3>
+                                    <ul class="contact-list">
+                                        <li>
+                                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
+                                                stroke-width="2" fill="none">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                                <circle cx="12" cy="10" r="3"></circle>
+                                            </svg>
+                                            <span>Промзона 3-й проезд, зд. 17, стр. 2</span>
+                                        </li>
+                                        <li>
+                                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
+                                                stroke-width="2" fill="none">
+                                                <path
+                                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                                </path>
+                                            </svg>
+                                            <a href="tel:+79990099023">+7 (999) 009-90-23</a>
+                                        </li>
+                                        <li>
+                                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor"
+                                                stroke-width="2" fill="none">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <polyline points="12 6 12 12 16 14"></polyline>
+                                            </svg>
+                                            <span>Ежедневно с 9:00 до 20:00</span>
+                                        </li>
+                                    </ul>
+                                    <div class="location-actions">
+                                        <a href="tel:+79990099023" class="btn btn-primary">Позвонить</a>
+                                        <a href="#" class="btn btn-outline">Маршрут</a>
+                                    </div>
+                                </div>
+                                <div class="location-map">
+                                    <div class="map-placeholder">
+                                        Карта Яндекс / Google
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <img src="assets/Photo/logo-light.png" alt="СТО ДЛЯ СВОИХ Логотип" class="real-logo-footer">
+                </a>
+                <p>Надежный автосервис нового формата. Прозрачность и профессионализм в каждой детали.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#locations">Локации</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Контакты</h4>
+                <div class="footer-contact-item">
+                    <strong>Санкт-Петербург:</strong>
+                    <a href="tel:+79213302120">+7 (921) 330-21-20</a>
+                </div>
+                <div class="footer-contact-item">
+                    <strong>Кингисепп:</strong>
+                    <a href="tel:+79990099023">+7 (999) 009-90-23</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom container">
+            <p>&copy; 2026 СТО ДЛЯ СВОИХ. Все права защищены.</p>
+            <div class="footer-legal">
+                <a href="privacy.html">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

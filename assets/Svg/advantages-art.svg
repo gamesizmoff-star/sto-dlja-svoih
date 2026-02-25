@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+    <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#00a3e1" stop-opacity="0.3"></stop>
+            <stop offset="100%" stop-color="#003050" stop-opacity="0"></stop>
+        </radialGradient>
+        <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#125687"></stop>
+            <stop offset="100%" stop-color="#00a3e1"></stop>
+        </linearGradient>
+    </defs>
+    <!-- Background glow -->
+    <circle cx="250" cy="250" r="200" fill="url(#glow)"/>
+    
+    <!-- Outer dashed tech circle -->
+    <circle cx="250" cy="250" r="180" fill="none" stroke="#125687" stroke-width="2" stroke-dasharray="10 15" opacity="0.6" />
+    <circle cx="250" cy="250" r="160" fill="none" stroke="#00a3e1" stroke-width="1" opacity="0.3" />
+
+    <!-- Abstract "C" arc intersecting -->
+    <path d="M 120 120 A 180 180 0 0 0 120 380" fill="none" stroke="#DADADA" stroke-width="4" opacity="0.2"/>
+    <path d="M 380 380 A 180 180 0 0 0 380 120" fill="none" stroke="#00a3e1" stroke-width="8" opacity="0.8"/>
+    
+    <!-- Central Shield / Gear -->
+    <g transform="translate(250, 250)">
+        <circle cx="0" cy="0" r="70" fill="#003050" stroke="#00a3e1" stroke-width="4" />
+        <path d="M 0 -85 L 15 -75 L 15 -65 L 25 -55 L 45 -55 L 55 -45 L 85 0 L 55 45 L 45 55 L 25 55 L 15 65 L 15 75 L 0 85 L -15 75 L -15 65 L -25 55 L -45 55 L -55 45 L -85 0 L -55 -45 L -45 -55 L -25 -55 L -15 -65 L -15 -75 Z" fill="none" stroke="#00a3e1" stroke-width="2" opacity="0.5"/>
+        
+        <!-- Inner orange check/accent -> now blue/gray -->
+        <circle cx="0" cy="0" r="50" fill="url(#gradOrange)" opacity="0.1" />
+        <path d="M -20 -5 L -5 10 L 25 -15" fill="none" stroke="#00a3e1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <!-- Dots and small accents -->
+        <circle cx="-50" cy="-50" r="6" fill="#00a3e1" />
+        <circle cx="60" cy="40" r="4" fill="#125687" />
+        <circle cx="-30" cy="60" r="3" fill="#DADADA" />
+    </g>
+
+    <!-- Floating UI elements (Cards abstraction) -->
+    <rect x="50" y="80" width="120" height="40" rx="8" fill="#125687" opacity="0.4" />
+    <rect x="65" y="95" width="40" height="10" rx="4" fill="#00a3e1" />
+    
+    <rect x="330" y="380" width="150" height="50" rx="8" fill="#003050" opacity="0.8" stroke="#00a3e1" stroke-width="1"/>
+    <rect x="345" y="395" width="20" height="20" rx="4" fill="#DADADA" />
+    <rect x="375" y="400" width="80" height="8" rx="4" fill="#DADADA" opacity="0.6"/>
+</svg>

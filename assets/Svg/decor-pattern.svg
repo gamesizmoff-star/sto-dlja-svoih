@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="200" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid slice">
+    <path d="M -100 100 Q 250 -50 500 100 T 1100 100" fill="none" stroke="#00a3e1" stroke-width="1" opacity="0.2"/>
+    <path d="M -100 120 Q 250 -30 500 120 T 1100 120" fill="none" stroke="#125687" stroke-width="2" opacity="0.3"/>
+    <path d="M -100 140 Q 250 -10 500 140 T 1100 140" fill="none" stroke="#DADADA" stroke-width="1" opacity="0.1" stroke-dasharray="5 5"/>
+    <circle cx="150" cy="80" r="4" fill="#00a3e1" opacity="0.5"/>
+    <circle cx="450" cy="50" r="2" fill="#DADADA" opacity="0.5"/>
+    <circle cx="850" cy="150" r="6" fill="#DADADA" opacity="0.3"/>
+    <circle cx="750" cy="70" r="3" fill="#00a3e1" opacity="0.6"/>
+</svg>
