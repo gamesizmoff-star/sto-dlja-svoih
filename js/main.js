@@ -22,8 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('menu-open');
-            // Опционально: анимация "гамбургера" в крестик
-            // Для этого можно добавить CSS класс
             menuToggle.classList.toggle('active');
         });
 
@@ -36,7 +34,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Табы локаций
+    // 3. SPA-навигация через вкладки
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabSections = document.querySelectorAll('.tab-section');
+
+    function switchTab(sectionId) {
+        // Убираем active у всех ссылок и секций
+        tabLinks.forEach(link => link.classList.remove('active'));
+        tabSections.forEach(section => {
+            section.classList.remove('active');
+        });
+
+        // Активируем нужную вкладку
+        tabLinks.forEach(link => {
+            if (link.getAttribute('data-section') === sectionId) {
+                link.classList.add('active');
+            }
+        });
+
+        // Показать нужную секцию
+        const targetSection = document.querySelector(`.tab-section[data-section="${sectionId}"]`);
+        if (targetSection) {
+            targetSection.classList.add('active');
+
+            // Скролл наверх при переключении
+            window.scrollTo({ top: 0, behavior: 'instant' });
+
+            // Все элементы появляются одновременно (без стаггера)
+            const animateElements = targetSection.querySelectorAll('.animate-on-scroll');
+            animateElements.forEach(el => {
+                el.classList.remove('is-visible');
+            });
+            // Небольшая задержка чтобы reset сработал до применения is-visible
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    animateElements.forEach(el => el.classList.add('is-visible'));
+                });
+            });
+
+            // Если это секция locations — загрузить карту
+            if (sectionId === 'locations') {
+                loadYandexMap();
+            }
+        }
+    }
+
+    tabLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sectionId = link.getAttribute('data-section');
+            switchTab(sectionId);
+        });
+    });
+
+    // 4. Табы локаций (внутри секции locations)
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
 
@@ -44,14 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-tab');
 
-            // Удаляем активный класс у всех
             tabBtns.forEach(b => b.classList.remove('active'));
             tabPanes.forEach(p => p.classList.remove('active'));
 
-            // Добавляем активный класс нажатому
             btn.classList.add('active');
 
-            // Показываем нужный контент
             const targetPane = document.getElementById(targetId);
             if (targetPane) {
                 targetPane.classList.add('active');
@@ -59,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Появление элементов при скролле (Intersection Observer)
+    // 5. Появление элементов при скролле (Intersection Observer)
     const animateElements = document.querySelectorAll('.animate-on-scroll');
 
     const observerOptions = {
@@ -72,29 +120,77 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                obs.unobserve(entry.target); // Анимируем только один раз
+                obs.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
     animateElements.forEach(el => observer.observe(el));
 
-    // 5. Нативный CSS scroll-behavior используется вместо JS.
+    // 6. Ленивая загрузка Яндекс.Карт
+    let mapInitialized = false;
+
+    window.loadYandexMap = function () {
+        if (mapInitialized) return;
+
+        // Проверяем, что API ещё не загружен
+        if (typeof ymaps !== 'undefined') {
+            initMap();
+            return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU';
+        script.onload = () => {
+            ymaps.ready(initMap);
+        };
+        script.onerror = () => {
+            const container = document.getElementById('yandex-map');
+            if (container) {
+                container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.4);font-family:var(--font-heading);font-size:1.1rem;text-align:center;padding:2rem;">Карта временно недоступна.<br>Используйте кнопку «Маршрут».</div>';
+            }
+        };
+        document.head.appendChild(script);
+        mapInitialized = true;
+    };
+
+    function initMap() {
+        const mapContainer = document.getElementById('yandex-map');
+        if (!mapContainer) return;
+
+        const map = new ymaps.Map('yandex-map', {
+            center: [59.882561, 30.369361], // ул. Бухарестская, 10, СПб
+            zoom: 16,
+            controls: ['zoomControl', 'geolocationControl']
+        });
+
+        const placemark = new ymaps.Placemark([59.882561, 30.369361], {
+            balloonContentHeader: 'СТО ДЛЯ СВОИХ',
+            balloonContentBody: 'ул. Бухарестская, 10<br>Ежедневно с 9:00 до 21:00<br>+7 (921) 330-21-20',
+            hintContent: 'СТО ДЛЯ СВОИХ — СПб'
+        }, {
+            preset: 'islands#blueAutoIcon'
+        });
+
+        map.geoObjects.add(placemark);
+
+        // Отключить зум скроллом, чтобы не мешать навигации
+        map.behaviors.disable('scrollZoom');
+        mapInitialized = true;
+    }
+
 });
 
 // Глобальная функция для копирования телефона по клику
 window.copyPhone = function (btnElement, phoneString, event) {
     if (event) event.preventDefault();
 
-    // Пытаемся скопировать в буфер
     navigator.clipboard.writeText(phoneString).then(() => {
-        // Раз копия успешна, меняем текст кнопки
         const originalText = btnElement.innerHTML;
         btnElement.innerHTML = 'Скопировано!';
-        btnElement.style.backgroundColor = '#125687'; // Дадим индикцию цветом
+        btnElement.style.backgroundColor = '#125687';
         btnElement.style.color = '#fff';
 
-        // Возвращаем текст
         setTimeout(() => {
             btnElement.innerHTML = originalText;
             btnElement.style.backgroundColor = '';

@@ -63,6 +63,8 @@ body {
     background-color: var(--color-bg-base);
     color: var(--color-light);
     overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100vh;
 }
 
 /* Типографика */
@@ -274,7 +276,8 @@ a {
 }
 
 .nav-list a:hover::after,
-.nav-list a.active::after {
+.nav-list a.active::after,
+.nav-list a.tab-link.active::after {
     width: 100%;
 }
 
@@ -316,7 +319,7 @@ a {
     /* Интеграция реального изображения с фасада как визуального паттерна на фоне */
     background:
         linear-gradient(to right, rgba(2, 11, 18, 0.95) 0%, rgba(2, 11, 18, 0.7) 100%),
-        url('../assets/Photo/hero-bg.jpg') center/cover no-repeat;
+        url('../assets/Photo/30258560164362660_cb3b.jpg') center/cover no-repeat;
     z-index: -1;
     overflow: hidden;
 }
@@ -441,7 +444,10 @@ a {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1.5rem;
+    gap: 1.2rem;
+    max-width: 1500px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 @media (max-width: 1200px) {
@@ -694,6 +700,56 @@ a {
     display: block;
     opacity: 1;
     animation: fadeIn 0.5s ease;
+}
+
+/* --- SPA Tab Sections --- */
+.tab-section {
+    display: none;
+    opacity: 0;
+    animation: none;
+}
+
+.tab-section.active {
+    display: flex;
+    opacity: 1;
+    animation: tabFadeIn 0.5s ease forwards;
+}
+
+/* Секции кроме hero используют flex column */
+.tab-section.active.services,
+.tab-section.active.advantages,
+.tab-section.active.locations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: var(--space-md);
+}
+
+/* Расширенный контейнер для секции услуг */
+.tab-section.active.services .container {
+    max-width: 1700px;
+}
+
+/* Секция «Наши СТО» прокручивается внутри — чтобы был виден footer */
+/* justify-content: center несовместим с overflow-y: auto, поэтому align-start */
+.tab-section.active.locations {
+    justify-content: flex-start;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+@keyframes tabFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .location-card {

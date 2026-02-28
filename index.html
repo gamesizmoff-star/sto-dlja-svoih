@@ -21,7 +21,7 @@
 <body>
     <header class="header">
         <div class="container header-container">
-            <a href="#home" class="logo">
+            <a href="#home" class="logo tab-link" data-section="home">
                 <img src="assets/Photo/logo-dark.png" alt="СТО ДЛЯ СВОИХ Логотип" class="real-logo">
             </a>
 
@@ -33,17 +33,19 @@
 
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#advantages">Преимущества</a></li>
-                    <li><a href="#locations">Наши СТО</a></li>
+                    <li><a href="#home" class="tab-link active" data-section="home">Главная</a></li>
+                    <li><a href="#services" class="tab-link" data-section="services">Услуги</a></li>
+                    <li><a href="#advantages" class="tab-link" data-section="advantages">Преимущества</a></li>
+                    <li><a href="#locations" class="tab-link" data-section="locations">Наши СТО</a></li>
                 </ul>
             </nav>
-            <a href="#locations" class="btn btn-primary btn-small header-btn">Связаться</a>
+            <a href="#locations" class="btn btn-primary btn-small header-btn tab-link"
+                data-section="locations">Связаться</a>
         </div>
     </header>
 
     <main>
-        <section class="hero" id="home">
+        <section class="hero tab-section active" id="home" data-section="home">
             <div class="hero-bg-pattern"></div>
             <div class="container hero-container">
                 <div class="hero-content">
@@ -64,14 +66,9 @@
                     </div>
                 </div>
             </div>
-            <div class="scroll-down">
-                <a href="#services" aria-label="Scroll down">
-                    <img src="assets/Svg/scroll-arrow.svg" alt="Arrow">
-                </a>
-            </div>
         </section>
 
-        <section class="services section-padding" id="services">
+        <section class="services section-padding tab-section" id="services" data-section="services">
             <div class="container">
                 <h2 class="section-title text-center">Наши <span class="text-accent">услуги</span></h2>
                 <div class="services-grid">
@@ -148,7 +145,7 @@
             </div>
         </section>
 
-        <section class="advantages section-padding" id="advantages">
+        <section class="advantages section-padding tab-section" id="advantages" data-section="advantages">
             <div class="container">
                 <div class="advantages-content">
                     <div class="advantages-text animate-on-scroll">
@@ -160,8 +157,9 @@
                             <li>
                                 <div class="adv-icon">🛡️</div>
                                 <div>
-                                    <strong>Гарантия 1 год</strong>
-                                    <p>Мы полностью уверены в качестве наших работ и запчастей.</p>
+                                    <strong>Гарантия 1 год или 10 000 км</strong>
+                                    <p>Мы полностью уверены в качестве наших работ и запчастей. Гарантия действует в
+                                        зависимости от того, что наступит раньше.</p>
                                 </div>
                             </li>
                             <li>
@@ -196,7 +194,7 @@
             </div>
         </section>
 
-        <section class="locations section-padding" id="locations">
+        <section class="locations section-padding tab-section" id="locations" data-section="locations">
             <div class="container">
                 <h2 class="section-title text-center">Наш <span class="text-accent">сервис</span></h2>
 
@@ -238,59 +236,55 @@
                                     <div class="location-actions">
                                         <a href="#!" onclick="copyPhone(this, '+7 921 330-21-20', event)"
                                             class="btn btn-primary">Позвонить</a>
-                                        <a href="javascript:void(0)"
-                                            onclick="alert('Открытие карт и построение маршрута в разработке!')"
-                                            class="btn btn-outline">Маршрут</a>
+                                        <a href="https://yandex.ru/maps/?rtext=~59.882561,30.369361" target="_blank"
+                                            rel="noopener" class="btn btn-outline">Маршрут</a>
                                     </div>
                                 </div>
-                                <div class="location-map">
-                                    <div class="map-placeholder">
-                                        Карта Яндекс / Google
-                                    </div>
+                                <div class="location-map" id="yandex-map-container">
+                                    <div id="yandex-map" style="width: 100%; height: 100%; min-height: 350px;"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Footer внутри вкладки locations -->
+            <footer class="footer" style="margin-top: var(--space-lg);">
+                <div class="container footer-container">
+                    <div class="footer-brand">
+                        <a href="#home" class="logo tab-link" data-section="home">
+                            <img src="assets/Photo/logo-light.png" alt="СТО ДЛЯ СВОИХ Логотип" class="real-logo-footer">
+                        </a>
+                        <p>Надежный автосервис нового формата. Прозрачность и профессионализм в каждой детали.</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Навигация</h4>
+                        <ul>
+                            <li><a href="#home" class="tab-link" data-section="home">Главная</a></li>
+                            <li><a href="#services" class="tab-link" data-section="services">Услуги</a></li>
+                            <li><a href="#advantages" class="tab-link" data-section="advantages">Преимущества</a></li>
+                            <li><a href="#locations" class="tab-link" data-section="locations">Наши СТО</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Контакты</h4>
+                        <div class="footer-contact-item">
+                            <strong>Санкт-Петербург:</strong>
+                            <a href="tel:+79213302120">+7 (921) 330-21-20</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom container">
+                    <p>&copy; 2026 СТО ДЛЯ СВОИХ. Все права защищены.</p>
+                    <div class="footer-legal">
+                        <a href="privacy.html">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </footer>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container footer-container">
-            <div class="footer-brand">
-                <a href="#home" class="logo">
-                    <img src="assets/Photo/logo-light.png" alt="СТО ДЛЯ СВОИХ Логотип" class="real-logo-footer">
-                </a>
-                <p>Надежный автосервис нового формата. Прозрачность и профессионализм в каждой детали.</p>
-            </div>
-
-            <div class="footer-links">
-                <h4>Навигация</h4>
-                <ul>
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#advantages">Преимущества</a></li>
-                    <li><a href="#locations">Локации</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-contact">
-                <h4>Контакты</h4>
-                <div class="footer-contact-item">
-                    <strong>Санкт-Петербург:</strong>
-                    <a href="tel:+79213302120">+7 (921) 330-21-20</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom container">
-            <p>&copy; 2026 СТО ДЛЯ СВОИХ. Все права защищены.</p>
-            <div class="footer-legal">
-                <a href="privacy.html">Политика конфиденциальности</a>
-            </div>
-        </div>
-    </footer>
 
     <script src="js/main.js"></script>
 </body>
