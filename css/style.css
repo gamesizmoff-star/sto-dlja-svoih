@@ -1072,4 +1072,24 @@ a {
     .location-details {
         padding: var(--space-md);
     }
+
+    /* SPA-секции на мобилках — убираем ограничение высоты */
+    .tab-section.active.services,
+    .tab-section.active.advantages,
+    .tab-section.active.locations {
+        min-height: 100vh;
+        padding-top: 70px;
+        overflow-y: auto;
+        justify-content: flex-start;
+    }
+
+    /* Услуги — 2 колонки на мобилке */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Hero-текст по центру на мобилке */
+    .hero-content {
+        text-align: center;
+    }
 }
